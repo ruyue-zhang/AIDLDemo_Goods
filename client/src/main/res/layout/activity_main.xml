@@ -39,6 +39,7 @@
         android:layout_height="wrap_content"
         android:layout_margin="10dp"
         android:hint="goods price"
+        android:inputType="number"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintTop_toBottomOf="@id/goods_img" />
 

@@ -7,12 +7,12 @@ public class Fruit implements Parcelable {
     private String imgLink;
     private String name;
     private String description;
-    private double price;
+    private int price;
 
     public Fruit() {
     }
 
-    public Fruit(String imgLink, String name, String description, double price) {
+    public Fruit(String imgLink, String name, String description, int price) {
         this.imgLink = imgLink;
         this.name = name;
         this.description = description;
@@ -23,7 +23,7 @@ public class Fruit implements Parcelable {
         imgLink = in.readString();
         name = in.readString();
         description = in.readString();
-        price = in.readDouble();
+        price = in.readInt();
     }
 
     public static final Creator<Fruit> CREATOR = new Creator<Fruit>() {
@@ -48,7 +48,7 @@ public class Fruit implements Parcelable {
         dest.writeString(imgLink);
         dest.writeString(name);
         dest.writeString(description);
-        dest.writeDouble(price);
+        dest.writeInt(price);
     }
 
     public String getImgLink() {
@@ -75,11 +75,11 @@ public class Fruit implements Parcelable {
         this.description = description;
     }
 
-    public double getPrice() {
+    public int getPrice() {
         return price;
     }
 
-    public void setPrice(double price) {
+    public void setPrice(int price) {
         this.price = price;
     }
 }

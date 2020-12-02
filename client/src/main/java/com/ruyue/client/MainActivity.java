@@ -17,6 +17,7 @@ import android.widget.EditText;
 import com.ruyue.goods.Fruit;
 import com.ruyue.goods.IRemoteService;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import butterknife.BindView;
@@ -26,16 +27,16 @@ import butterknife.OnClick;
 public class MainActivity extends AppCompatActivity {
 
     @BindView(R.id.goods_name)
-    private EditText name;
+    EditText name;
     @BindView(R.id.goods_img)
-    private EditText imageLink;
+    EditText imageLink;
     @BindView(R.id.goods_desc)
-    private EditText description;
+    EditText description;
     @BindView(R.id.goods_price)
-    private EditText price;
+    EditText price;
 
     @BindView(R.id.recyclerview)
-    private RecyclerView recyclerView;
+    RecyclerView recyclerView;
 
     @OnClick({R.id.refresh, R.id.add_goods})
     void btnOnClick(Button btn) {
@@ -49,7 +50,8 @@ public class MainActivity extends AppCompatActivity {
                     fruit.setImgLink(imageLink.getText().toString());
                     fruit.setName(name.getText().toString());
                     fruit.setDescription(description.getText().toString());
-                    fruit.setPrice(Integer.getInteger(price.getText().toString()));
+                    int fruitPrice = Integer.valueOf(price.getText().toString()).intValue();
+                    fruit.setPrice(fruitPrice);
                     iRemoteService.add(fruit);
                     refreshOrderList();
                 } catch (RemoteException e) {
@@ -79,9 +81,8 @@ public class MainActivity extends AppCompatActivity {
     };
 
     private void bindService() {
-        Intent intent = new Intent("com.ruyue.goods.MyService");
-        intent.setPackage("com.ruyue.goods");
-        intent.addCategory(Intent.CATEGORY_LAUNCHER);
+        Intent intent = new Intent();
+        intent.setComponent(new ComponentName("com.ruyue.goods", "com.ruyue.goods.MyService"));
         bindService(intent, connection, Context.BIND_AUTO_CREATE);
     }
 
@@ -90,6 +91,9 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         ButterKnife.bind(this);
+        fruitList = new ArrayList<>();
+        Fruit banana = new Fruit("http://ww1.sinaimg.cn/large/ad6fc8b3ly1gl9vza9x42j20280280sn.jpg", "banana","This is banana", 10);
+        fruitList.add(banana);
         goodsAdapter = new GoodsAdapter(fruitList, this);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
         recyclerView.setAdapter(goodsAdapter);
