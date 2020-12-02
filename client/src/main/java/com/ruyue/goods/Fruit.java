@@ -9,6 +9,9 @@ public class Fruit implements Parcelable {
     private String description;
     private double price;
 
+    public Fruit() {
+    }
+
     public Fruit(String imgLink, String name, String description, double price) {
         this.imgLink = imgLink;
         this.name = name;

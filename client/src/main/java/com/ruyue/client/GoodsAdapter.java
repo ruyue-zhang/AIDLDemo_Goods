@@ -25,6 +25,10 @@ public class GoodsAdapter extends RecyclerView.Adapter<GoodsAdapter.FruitViewHol
         this.context = context;
     }
 
+    public void setData(List<Fruit> fruitList) {
+        this.fruitList = fruitList;
+    }
+
     static class FruitViewHolder extends RecyclerView.ViewHolder {
         private ImageView image;
         private TextView name;
