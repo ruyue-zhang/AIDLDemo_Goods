@@ -1,5 +1,6 @@
 package com.ruyue.client;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
@@ -8,9 +9,11 @@ import android.content.ComponentName;
 import android.content.Context;
 import android.content.Intent;
 import android.content.ServiceConnection;
+import android.graphics.Rect;
 import android.os.Bundle;
 import android.os.IBinder;
 import android.os.RemoteException;
+import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 
@@ -91,6 +94,7 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         ButterKnife.bind(this);
+        bindService();
         fruitList = new ArrayList<>();
         Fruit banana = new Fruit("https://ww1.sinaimg.cn/large/ad6fc8b3ly1gl9vza9x42j20280280sn.jpg", "banana","This is banana", 10);
         fruitList.add(banana);
