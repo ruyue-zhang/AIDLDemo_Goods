@@ -21,6 +21,7 @@
         android:layout_height="50dp"
         android:layout_marginHorizontal="20dp"
         android:layout_marginVertical="5dp"
+        android:gravity="center_vertical"
         app:layout_constraintLeft_toRightOf="@+id/image"
         app:layout_constraintRight_toLeftOf="@id/price"
         app:layout_constraintTop_toTopOf="parent" />
@@ -29,6 +30,7 @@
         android:id="@+id/price"
         android:layout_width="wrap_content"
         android:layout_height="50dp"
+        android:gravity="center_vertical"
         android:layout_marginHorizontal="20dp"
         android:layout_marginVertical="5dp"
         app:layout_constraintLeft_toRightOf="@+id/name"
