@@ -92,7 +92,7 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         ButterKnife.bind(this);
         fruitList = new ArrayList<>();
-        Fruit banana = new Fruit("http://ww1.sinaimg.cn/large/ad6fc8b3ly1gl9vza9x42j20280280sn.jpg", "banana","This is banana", 10);
+        Fruit banana = new Fruit("https://ww1.sinaimg.cn/large/ad6fc8b3ly1gl9vza9x42j20280280sn.jpg", "banana","This is banana", 10);
         fruitList.add(banana);
         goodsAdapter = new GoodsAdapter(fruitList, this);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
