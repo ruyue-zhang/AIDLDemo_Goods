@@ -1,3 +1,13 @@
+项目启动流程：
+
+1.先启动app端作为service端
+
+2.启动client客户端
+
+3.在client添加商品信息，点击ADD，即可添加成功，在下面列表会显示添加的所有商品信息
+
+
+
 苹果：https://ww1.sinaimg.cn/large/ad6fc8b3ly1gl9vymmyjgj2028028t8m.jpg
 
 香蕉：https://ww1.sinaimg.cn/large/ad6fc8b3ly1gl9vza9x42j20280280sn.jpg
